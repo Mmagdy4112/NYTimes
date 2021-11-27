@@ -8,4 +8,5 @@ target 'NYStories' do
   # Pods for NYStories
     pod 'Alamofire', '~> 5.4'
     pod 'GRDB.swift'
+    pod 'SDWebImage', '~> 5.0'
 end
