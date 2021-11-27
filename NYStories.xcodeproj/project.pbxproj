@@ -10,6 +10,8 @@
 		BF9D623927526C0B007DDC83 /* StoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D623827526C0B007DDC83 /* StoryCollectionCell.swift */; };
 		BF9D623B27526D7E007DDC83 /* BookMarksDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D623A27526D7E007DDC83 /* BookMarksDataSource.swift */; };
 		BF9D623D2752729E007DDC83 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D623C2752729E007DDC83 /* Utils.swift */; };
+		BF9D624027528CFE007DDC83 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D623F27528CFE007DDC83 /* DetailsViewController.swift */; };
+		BF9D624227528D0B007DDC83 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9D624127528D0B007DDC83 /* DetailsViewModel.swift */; };
 		BFA44E4E27512D5D007002B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA44E4D27512D5D007002B8 /* AppDelegate.swift */; };
 		BFA44E5227512D5D007002B8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA44E5127512D5D007002B8 /* MainViewController.swift */; };
 		BFA44E5527512D5D007002B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA44E5327512D5D007002B8 /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 		BF9D623827526C0B007DDC83 /* StoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionCell.swift; sourceTree = "<group>"; };
 		BF9D623A27526D7E007DDC83 /* BookMarksDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarksDataSource.swift; sourceTree = "<group>"; };
 		BF9D623C2752729E007DDC83 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		BF9D623F27528CFE007DDC83 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		BF9D624127528D0B007DDC83 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		BFA44E4A27512D5D007002B8 /* NYStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA44E4D27512D5D007002B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFA44E5127512D5D007002B8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,15 @@
 				B4352A5838D05B11430B90B9 /* Pods_NYStories.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF9D623E27528CE8007DDC83 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				BF9D623F27528CFE007DDC83 /* DetailsViewController.swift */,
+				BF9D624127528D0B007DDC83 /* DetailsViewModel.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		BFA44E4127512D5D007002B8 = {
@@ -192,6 +205,7 @@
 		BFA44E9A2751479E007002B8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				BF9D623E27528CE8007DDC83 /* Details */,
 				BFA44EA727515EF4007002B8 /* Boomarks */,
 				BFA44E9B275147A5007002B8 /* Main */,
 			);
@@ -353,6 +367,7 @@
 			files = (
 				BFA44E9727514506007002B8 /* AlertDialogHelper.swift in Sources */,
 				BF9D623927526C0B007DDC83 /* StoryCollectionCell.swift in Sources */,
+				BF9D624027528CFE007DDC83 /* DetailsViewController.swift in Sources */,
 				BFA44EA227515025007002B8 /* StringExt.swift in Sources */,
 				BFA44E9027513785007002B8 /* ApiClient.swift in Sources */,
 				BFA44E7727513692007002B8 /* StoryCell.swift in Sources */,
@@ -361,6 +376,7 @@
 				BFA44EAB27515F2D007002B8 /* BookMarksViewModel.swift in Sources */,
 				BFA44E9827514506007002B8 /* DataBaseHelper.swift in Sources */,
 				BFA44E9927514506007002B8 /* LoadingView.swift in Sources */,
+				BF9D624227528D0B007DDC83 /* DetailsViewModel.swift in Sources */,
 				BFA44E8F27513785007002B8 /* ApiConstants.swift in Sources */,
 				BF9D623B27526D7E007DDC83 /* BookMarksDataSource.swift in Sources */,
 				BFA44E7F275136E6007002B8 /* MainCoordinator.swift in Sources */,
