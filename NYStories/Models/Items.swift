@@ -11,8 +11,11 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 */
 
-import Foundation
-struct Results : Codable {
+import GRDB
+
+struct Items : Codable ,FetchableRecord, MutablePersistableRecord,DatabaseValueConvertible,Identifiable{
+    static var databaseTableName: String { return "items" }
+    var id : Int64?
 	let section : String?
 	let subsection : String?
 	let title : String?
@@ -32,9 +35,10 @@ struct Results : Codable {
 	let geo_facet : [String]?
 	let multimedia : [Multimedia]?
 	let short_url : String?
+    var isFavourite:Bool = false
 
 	enum CodingKeys: String, CodingKey {
-
+        case id
 		case section = "section"
 		case subsection = "subsection"
 		case title = "title"
@@ -54,10 +58,12 @@ struct Results : Codable {
 		case geo_facet = "geo_facet"
 		case multimedia = "multimedia"
 		case short_url = "short_url"
+        case isFavourite
 	}
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(Int64.self, forKey: .id)
 		section = try values.decodeIfPresent(String.self, forKey: .section)
 		subsection = try values.decodeIfPresent(String.self, forKey: .subsection)
 		title = try values.decodeIfPresent(String.self, forKey: .title)
@@ -77,6 +83,10 @@ struct Results : Codable {
 		geo_facet = try values.decodeIfPresent([String].self, forKey: .geo_facet)
 		multimedia = try values.decodeIfPresent([Multimedia].self, forKey: .multimedia)
 		short_url = try values.decodeIfPresent(String.self, forKey: .short_url)
+        isFavourite = try values.decodeIfPresent(Bool.self, forKey: .isFavourite) ?? false
 	}
 
+    mutating func didInsert(with rowID: Int64, for column: String?) {
+        id = rowID
+    }
 }

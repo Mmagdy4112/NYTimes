@@ -11,14 +11,14 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 */
 
-import Foundation
-struct MainResponse : Codable {
+import GRDB
+struct MainResponse : Codable{
 	let status : String?
 	let copyright : String?
 	let section : String?
 	let last_updated : String?
 	let num_results : Int?
-	let results : [Results]?
+	let items : [Items]?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -27,7 +27,7 @@ struct MainResponse : Codable {
 		case section = "section"
 		case last_updated = "last_updated"
 		case num_results = "num_results"
-		case results = "results"
+		case items = "results"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -37,7 +37,7 @@ struct MainResponse : Codable {
 		section = try values.decodeIfPresent(String.self, forKey: .section)
 		last_updated = try values.decodeIfPresent(String.self, forKey: .last_updated)
 		num_results = try values.decodeIfPresent(Int.self, forKey: .num_results)
-		results = try values.decodeIfPresent([Results].self, forKey: .results)
+        items = try values.decodeIfPresent([Items].self, forKey: .items)
 	}
 
 }

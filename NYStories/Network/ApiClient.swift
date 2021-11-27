@@ -18,9 +18,8 @@ class APIClient {
             }
     }
     
-//    func products( completion:@escaping (DataResponse<ProductResponse,AFError>)->Void) {
-//        let dictonary:[String:Any] = MainRequest().dictionary!
-//        performRequest(route: APIRouter.products(params: dictonary), completion: completion)
-//    }
+    func getItems( completion:@escaping (DataResponse<MainResponse,AFError>)->Void) {
+        performRequest(route: APIRouter.stories, completion: completion)
+    }
 
 }

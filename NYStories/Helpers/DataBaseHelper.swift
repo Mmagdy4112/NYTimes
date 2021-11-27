@@ -32,21 +32,28 @@ class DataBaseHelper {
     static func createDeliveryTypesTable(){
         do {
             try dbQueue.write { db in
-                try db.create(table: "delivery_type",ifNotExists: true) { t in
+                try db.create(table: "items",ifNotExists: true) { t in
                     t.autoIncrementedPrimaryKey("id")
-                    t.column("name", .text)
-                    t.column("display_name", .text)
-                    t.column("pricelist_id", .integer)
-                    t.column("pricelist_name", .text)
-                    t.column("order_type", .text)
-                    t.column("delivery_product_id", .integer)
-                    t.column("delivery_amount", .double)
-                    t.column("__last_update", .text)
-                    t.column("sequence", .integer)
-                    t.column("require_info", .integer)
-                    t.column("category_id", .integer)
-                    t.column("required_driver", .integer)
-                    t.column("show_customer_info", .integer)
+                    t.column("section", .text)
+                    t.column("subsection", .text)
+                    t.column("title", .text)
+                    t.column("abstract", .text)
+                    t.column("url", .text)
+                    t.column("uri", .text)
+                    t.column("byline", .text)
+                    t.column("item_type", .text)
+                    t.column("updated_date", .text)
+                    t.column("created_date", .text)
+                    t.column("published_date", .text)
+                    t.column("material_type_facet", .text)
+                    t.column("kicker", .text)
+                    t.column("org_facet", .text)
+                    t.column("per_facet", .text)
+                    t.column("geo_facet", .text)
+                    t.column("des_facet", .text)
+                    t.column("multimedia", .text)
+                    t.column("short_url", .text)
+                    t.column("isFavourite", .boolean).defaults(to: false)
 
                 }
             }
@@ -55,5 +62,6 @@ class DataBaseHelper {
         }
     }
 }
+
 
 
