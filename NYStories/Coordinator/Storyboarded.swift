@@ -13,7 +13,7 @@ protocol Storyboarded {
 }
 
 extension Storyboarded where Self: UIViewController {
-    static func instantiate(storyBoard:String = "Login") -> Self {
+    static func instantiate(storyBoard:String = "Main") -> Self {
         // this pulls out "MyApp.MyViewController"
         let fullName = NSStringFromClass(self)
 
