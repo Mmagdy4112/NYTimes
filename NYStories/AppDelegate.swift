@@ -10,9 +10,26 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    var coordinator:Coordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // create a basic UIWindow and activate it
+        let navController = UINavigationController()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible()
+
+        // Database handler
+        try! DataBaseHelper.setup(for: application)
+        
+        // create the main navigation controller to be used for our app
+
+        // send that into our coordinator so that it can display view controllers
+        coordinator = TabBarCoordinator(navigationController: navController)
+
+        // tell the coordinator to take over control
+        coordinator?.start()
+
         return true
     }
 
