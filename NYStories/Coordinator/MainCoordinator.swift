@@ -21,13 +21,22 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-//        self.initMenu()
-//        let vc = MainViewController.instantiate(storyBoard: "Main")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabBarController = storyboard.instantiateViewController(identifier: "TabBarController")
+        let mainVc = MainViewController.instantiate()
+        let viewmodel = MainViewModel()
+        viewmodel.coordinator = self
+        mainVc.mainViewModel = viewmodel
+        
+//        let mainVc = MainViewController.instantiate()
 //        let viewmodel = MainViewModel()
 //        viewmodel.coordinator = self
 //        vc.mainViewModel = viewmodel
-//        SideMenuManager.default.addPanGestureToPresent(toView: vc.view)
-//        navigationController.viewControllers = [vc]
+        
+        navigationController.viewControllers = [tabBarController]
+        
+        
+
     }
     
 }
