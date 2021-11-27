@@ -19,7 +19,6 @@ class MainViewModel:NSObject{
     }
     
     func getItems(){
-        LoadingView.shared.startAnimating()
         apiService.getItems{response in
             LoadingView.shared.stopAnimatimating()
             switch response.result{
@@ -40,7 +39,7 @@ class MainViewModel:NSObject{
                 let results = try Items.fetchAll(db)
                 if let items = items {
                     for (indx,item) in items.enumerated(){
-                        if (results.firstIndex(where: {$0.id == item.id}) != nil){
+                        if (results.firstIndex(where: {$0.short_url == item.short_url}) != nil){
                             self.items?[indx].isFavourite = true
                         }else{
                             self.items?[indx].isFavourite = false

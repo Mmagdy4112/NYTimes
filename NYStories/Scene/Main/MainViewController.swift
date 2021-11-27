@@ -15,6 +15,7 @@ class MainViewController: UIViewController,Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LoadingView.shared.startAnimating(view: self.view)
         callToViewModelForUIUpdate()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +29,7 @@ class MainViewController: UIViewController,Storyboarded {
         self.updateDataSource()
         self.mainViewModel.bindItemsToController = {
             DispatchQueue.main.async {
+                LoadingView.shared.stopAnimatimating()
                 self.dataSource.items = self.mainViewModel.items
                 self.tableView.reloadData()
             }
@@ -52,7 +54,7 @@ class MainViewController: UIViewController,Storyboarded {
             }
         })
         self.dataSource.didSelectItem = {indx in
-            
+            self.mainViewModel.coordinator?.navigateToDetails(item: (self.mainViewModel.items?[indx])!)
         }
         DispatchQueue.main.async {
             self.tableView.dataSource = self.dataSource

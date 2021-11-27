@@ -43,6 +43,9 @@ class BookMarksViewController: UIViewController ,Storyboarded {
             }
         })
         self.dataSource.didSelectItem = {indx in
+            self.dataSource.didSelectItem = {indx in
+                self.bookMarksViewModel.coordinator?.navigateToDetails(item: (self.bookMarksViewModel.items?[indx])!)
+            }
         }
         DispatchQueue.main.async {
             self.collectionView.dataSource = self.dataSource
